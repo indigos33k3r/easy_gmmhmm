@@ -56,6 +56,12 @@
     <li class="toctree-l2"><a href="#easy-gmmhmm">easy GMMHMM</a></li>
     
 
+    <li class="toctree-l2"><a href="#train">train</a></li>
+    
+
+    <li class="toctree-l2"><a href="#test">test</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -109,7 +115,32 @@
               
                 <h1 id="easy-gmmhmm">easy GMMHMM</h1>
 <p>easily train and make with predictions with gmmhmm</p>
-<p><a href="./docs">read the docs</a></p>
+<p><a href="https://JarbasAl.github.io/easy_gmmhmm/">read the docs</a></p>
+<h1 id="train">train</h1>
+<p>takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
+accepts a configuration for each in terms of number of states for HMM and number of mixtures in the Gaussian Model and then trains a set of GMMHMMs,
+one for each label.</p>
+<p>Params:
+-data_path: Path to the training wav files. Each folder in this path is a label and must NOT be empty.
+-model_path: Path to store the generated pickle files in.</p>
+<pre><code>from easy_gmmhmm.train import train
+
+model_path = "models"
+data_path = "data"
+train(data_path, model_path)
+</code></pre>
+<h1 id="test">test</h1>
+<pre><code>from easy_gmmhmm import predict_label
+import time
+
+start = time.time()
+wav_file = "test.wav"
+model_path = "models"
+predicted, probs = predict_label(wav_file, model_path)
+print("PREDICTED: %s" % predicted[0])
+print("scores: {}".format(probs))
+print("elapsed", time.time() - start)
+</code></pre>
               
             </div>
           </div>
@@ -158,5 +189,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-11-06 00:58:37
+Build Date UTC : 2018-11-06 01:04:38
 -->
