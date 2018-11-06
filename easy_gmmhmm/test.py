@@ -27,8 +27,7 @@ def get_nbest(d, n):
 def predict_label(test_file, model_path="models/gmmhmm.pkl"):
     """
         Description:
-            Based on training or testing mode, takes appropriate path to
-            predict speaker label for input wav file.
+            predict label for input wav file.
 
         Params:
             * test_file (mandatory): Wav file for which label should be predicted.

@@ -5,7 +5,7 @@
  
 
  ```
- def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models/gmmhmm.pkl', from_file=False)
+ def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='models', from_file=False)
  ```
 
  
@@ -29,7 +29,7 @@ Returns a dictionary of trained GMMHMM objects.
  
 
  ```
- def train(data_path, models_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models')
+ def train(data_path, models_path='models')
  ```
 
  
