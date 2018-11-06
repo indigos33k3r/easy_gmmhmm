@@ -1,8 +1,8 @@
+import heapq
+import pickle
+
 import scipy.io.wavfile as wvf
 from python_speech_features import mfcc
-import pickle
-import heapq
-from os.path import dirname, join
 
 
 def test_file(test_file, gmms):
@@ -24,8 +24,7 @@ def get_nbest(d, n):
     return heapq.nlargest(n, d, key=lambda k: d[k])
 
 
-def predict_label(test_file, model_path=join(dirname(__file__),
-                                             "models/gmmhmm.pkl")):
+def predict_label(test_file, model_path="models/gmmhmm.pkl"):
     """
         Description:
             Based on training or testing mode, takes appropriate path to

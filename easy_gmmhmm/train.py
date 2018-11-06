@@ -1,11 +1,11 @@
-from hmmlearn.hmm import GMMHMM
-import scipy.io.wavfile as wvf
-from python_speech_features import mfcc
+import glob
 import os
 import pickle
-import glob
+
 import numpy as np
-from os.path import dirname
+import scipy.io.wavfile as wvf
+from hmmlearn.hmm import GMMHMM
+from python_speech_features import mfcc
 
 
 def wav2mfcc(labels, data_path, pickle_path="trng_data.pkl", from_file=False):
@@ -52,7 +52,7 @@ def obtain_config(labels, file_path, from_file=False):
 
 
 def get_GMMs(labels, trng_data=None, GMM_config=None,
-             model_path=dirname(__file__) + "/models/gmmhmm.pkl",
+             model_path="models/gmmhmm.pkl",
              from_file=False):
     """
         Utility function to train or load GMMHMMs based on entered
@@ -76,7 +76,7 @@ def get_GMMs(labels, trng_data=None, GMM_config=None,
 
 
 def train(data_path,
-          models_path=dirname(__file__) + "/models"):
+          models_path="models"):
     """
     Description:
         Function that takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
