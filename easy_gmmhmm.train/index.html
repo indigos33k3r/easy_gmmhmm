@@ -53,17 +53,24 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../easy_gmmhmm.test/">test</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">train</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#module-train">Module train</a></li>
+    <li class="toctree-l2"><a href="#module-easy_gmmhmmtrain">Module easy_gmmhmm.train</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get95gmms">get_GMMs</a></li>
+        
+            <li><a class="toctree-l3" href="#obtain95config">obtain_config</a></li>
+        
+            <li><a class="toctree-l3" href="#train">train</a></li>
+        
+            <li><a class="toctree-l3" href="#wav2mfcc">wav2mfcc</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -71,13 +78,7 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">models</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../easy_gmmhmm.models/">models</a>
-                </li>
-    </ul>
+    <a class="" href="../easy_gmmhmm.test/">test</a>
 	    </li>
           
         </ul>
@@ -112,19 +113,38 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="module-train">Module train</h2>
-<pre><code>Description:
-    Function that takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
-    accepts a configuration for each in terms of number of states for HMM and number of mixtures in the Gaussian Model and then trains a set of GMMHMMs,
-    one for each label.
-Params:
-    * data_path (mandatory): Path to the training wav files. Each folder in this path is a label and must NOT be empty.
-    * models (mandatory): Path to store the generated pickle files in.
+                <h2 id="module-easy_gmmhmmtrain">Module easy_gmmhmm.train</h2>
+<h3 id="get95gmms">get_GMMs</h3>
+<p><code>def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models/gmmhmm.pkl', from_file=False)</code></p>
+<p>Utility function to train or load GMMHMMs based on entered</p>
+<p>configuration and training data.</p>
+<p>Returns a dictionary of trained GMMHMM objects. </p>
+<h3 id="obtain95config">obtain_config</h3>
+<p><code>def obtain_config(labels, file_path, from_file=False)</code></p>
+<p>Utility function to take in parameters to train individual GMMHMMs </p>
+<h3 id="train">train</h3>
+<p><code>def train(data_path, models_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models')</code></p>
+<p>Description:</p>
+<pre><code>Function that takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
 
-Return:
-    A python dictionary of GMMHMMs that are trained, key values being
-    labels extracted from folder names.
+accepts a configuration for each in terms of number of states for HMM and number of mixtures in the Gaussian Model and then trains a set of GMMHMMs,
+
+one for each label.
 </code></pre>
+<p>Params:</p>
+<pre><code>* data_path (mandatory): Path to the training wav files. Each folder in this path is a label and must NOT be empty.
+
+* models (mandatory): Path to store the generated pickle files in.
+</code></pre>
+<p>Return:</p>
+<pre><code>A python dictionary of GMMHMMs that are trained, key values being
+
+labels extracted from folder names.
+</code></pre>
+<h3 id="wav2mfcc">wav2mfcc</h3>
+<p><code>def wav2mfcc(labels, data_path, pickle_path='trng_data.pkl', from_file=False)</code></p>
+<p>Utility function to read wav files, convert them into MFCC vectors and store in a pickle file</p>
+<p>(Pickle file is useful in case you re-train on the same data changing hyperparameters) </p>
               
             </div>
           </div>
@@ -132,10 +152,10 @@ Return:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../easy_gmmhmm.models/" class="btn btn-neutral float-right" title="models">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../easy_gmmhmm.test/" class="btn btn-neutral float-right" title="test">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../easy_gmmhmm.test/" class="btn btn-neutral" title="test"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -161,10 +181,10 @@ Return:
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../easy_gmmhmm.test/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../easy_gmmhmm.models/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../easy_gmmhmm.test/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
