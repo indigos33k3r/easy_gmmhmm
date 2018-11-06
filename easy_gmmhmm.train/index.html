@@ -115,7 +115,7 @@
               
                 <h2 id="module-easy_gmmhmmtrain">Module easy_gmmhmm.train</h2>
 <h3 id="get95gmms">get_GMMs</h3>
-<p><code>def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models/gmmhmm.pkl', from_file=False)</code></p>
+<p><code>def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='models', from_file=False)</code></p>
 <p>Utility function to train or load GMMHMMs based on entered</p>
 <p>configuration and training data.</p>
 <p>Returns a dictionary of trained GMMHMM objects. </p>
@@ -123,7 +123,7 @@
 <p><code>def obtain_config(labels, file_path, from_file=False)</code></p>
 <p>Utility function to take in parameters to train individual GMMHMMs </p>
 <h3 id="train">train</h3>
-<p><code>def train(data_path, models_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models')</code></p>
+<p><code>def train(data_path, models_path='models')</code></p>
 <p>Description:</p>
 <pre><code>Function that takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
 
