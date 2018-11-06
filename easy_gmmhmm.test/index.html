@@ -5,25 +5,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
   
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - easy_gmmhmm</title>
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>test - easy_gmmhmm</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_name = "test";
+    var mkdocs_page_input_path = "easy_gmmhmm.test.md";
     var mkdocs_page_url = null;
   </script>
   
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -36,9 +36,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> easy_gmmhmm</a>
+        <a href=".." class="icon icon-home"> easy_gmmhmm</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -48,21 +48,27 @@
 	<ul class="current">
 	  
           
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href=".">Home</a>
+    <a class="current" href="./">test</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#easy-gmm-hmm">easy GMM-HMM</a></li>
+    <li class="toctree-l2"><a href="#module-easy_gmmhmmtest">Module easy_gmmhmm.test</a></li>
     
-
-    <li class="toctree-l2"><a href="#install">install</a></li>
-    
-
-    <li class="toctree-l2"><a href="#train">train</a></li>
-    
-
-    <li class="toctree-l2"><a href="#test">test</a></li>
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get95nbest">get_nbest</a></li>
+        
+            <li><a class="toctree-l3" href="#predict95label">predict_label</a></li>
+        
+            <li><a class="toctree-l3" href="#test95file">test_file</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -70,12 +76,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="easy_gmmhmm.test/">test</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="easy_gmmhmm.train/">train</a>
+    <a class="" href="../easy_gmmhmm.train/">train</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -84,7 +85,7 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="easy_gmmhmm.models/">models</a>
+    <a class="" href="../easy_gmmhmm.models/">models</a>
                 </li>
     </ul>
 	    </li>
@@ -99,7 +100,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">easy_gmmhmm</a>
+        <a href="..">easy_gmmhmm</a>
       </nav>
 
       
@@ -107,11 +108,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="..">Docs</a> &raquo;</li>
     
       
     
-    <li>Home</li>
+    <li>test</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -121,41 +122,28 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="easy-gmm-hmm">easy GMM-HMM</h1>
-<p>GMM-HMM (Hidden markov model with Gaussian mixture emissions) for sound recognition and other uses</p>
-<p><a href="https://JarbasAl.github.io/easy_gmmhmm/">read the docs</a></p>
-<h1 id="install">install</h1>
-<pre><code>pip install numpy
-pip install scipy
-pip install python_speech_features
-pip install hmmlearn
-pip install git+https://github.com/JarbasAl/easy_gmmhmm
-</code></pre>
-<h1 id="train">train</h1>
-<p>takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
-accepts a configuration for each in terms of number of states for HMM and number of mixtures in the Gaussian Model and then trains a set of GMMHMMs,
-one for each label.</p>
-<p>Params:
--data_path: Path to the training wav files. Each folder in this path is a label and must NOT be empty.
--model_path: Path to store the generated pickle files in.</p>
-<pre><code>from easy_gmmhmm import train
+                <h2 id="module-easy_gmmhmmtest">Module easy_gmmhmm.test</h2>
+<h3 id="get95nbest">get_nbest</h3>
+<p><code>def get_nbest(d, n)</code></p>
+<p>Utility function to return n best predictions. </p>
+<h3 id="predict95label">predict_label</h3>
+<p><code>def predict_label(test_file, model_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models/gmmhmm.pkl')</code></p>
+<p>Description:</p>
+<pre><code>Based on training or testing mode, takes appropriate path to
 
-model_path = "models"
-data_path = "data"
-train(data_path, model_path)
+predict speaker label for input wav file.
 </code></pre>
-<h1 id="test">test</h1>
-<pre><code>from easy_gmmhmm import predict_label
-import time
+<p>Params:</p>
+<pre><code>* test_file (mandatory): Wav file for which label should be predicted.
 
-start = time.time()
-wav_file = "test.wav"
-model_path = "models"
-predicted, probs = predict_label(wav_file, model_path)
-print("PREDICTED: %s" % predicted[0])
-print("scores: {}".format(probs))
-print("elapsed", time.time() - start)
+* model_path: Path to gmmhmm model.
 </code></pre>
+<p>Return:</p>
+<pre><code>A list of predicted label and next best predicted label.
+</code></pre>
+<h3 id="test95file">test_file</h3>
+<p><code>def test_file(test_file, gmms)</code></p>
+<p>Test a given file and predict an label for it. </p>
               
             </div>
           </div>
@@ -163,8 +151,10 @@ print("elapsed", time.time() - start)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="easy_gmmhmm.test/" class="btn btn-neutral float-right" title="test">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../easy_gmmhmm.train/" class="btn btn-neutral float-right" title="train">Next <span class="icon icon-circle-arrow-right"></span></a>
       
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -190,19 +180,16 @@ print("elapsed", time.time() - start)
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-        <span style="margin-left: 15px"><a href="easy_gmmhmm.test/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+        <span style="margin-left: 15px"><a href="../easy_gmmhmm.train/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2018-11-06 01:13:23
--->
