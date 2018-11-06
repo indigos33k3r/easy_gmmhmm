@@ -168,5 +168,6 @@ venv.bak/
 
 .idea/
 _build/
+docs/
 automarkdocs.py
 easy_gmmhmm/pydocmd.yml

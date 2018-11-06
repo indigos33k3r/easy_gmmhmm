@@ -37,14 +37,12 @@ def obtain_config(labels, file_path, from_file=False):
     """
     conf = {}
     if not from_file:
-        for gender in labels:
-            conf[gender] = {}
-            print('*' * 50)
-            print(gender)
-            print('*' * 20)
-            conf[gender]["n_components"] = int(
+        for label in labels:
+            conf[label] = {}
+            print(label)
+            conf[label]["n_components"] = int(
                 eval(input("Enter number of components in the GMMHMM: ")))
-            conf[gender]["n_mix"] = int(
+            conf[label]["n_mix"] = int(
                 eval(
                     input("Enter number of mixtures in the Gaussian Model: ")))
         pickle.dump(conf, open(file_path, "wb"))
@@ -63,13 +61,13 @@ def get_GMMs(labels, trng_data=None, GMM_config=None,
     """
     gmms = {}
     if not from_file:
-        for gender in labels:
-            gmms[gender] = GMMHMM(
-                n_components=GMM_config[gender]["n_components"],
-                n_mix=GMM_config[gender]["n_mix"])
-            if trng_data[gender]:
+        for label in labels:
+            gmms[label] = GMMHMM(
+                n_components=GMM_config[label]["n_components"],
+                n_mix=GMM_config[label]["n_mix"])
+            if trng_data[label]:
                 # print np.shape(trng_data[wav_file])
-                gmms[gender].fit(np.vstack(trng_data[gender]))
+                gmms[label].fit(np.vstack(trng_data[label]))
                 # emo_machines[wav_file].fit(trng_data[wav_file])
         pickle.dump(gmms, open(model_path, "wb"))
     else:
