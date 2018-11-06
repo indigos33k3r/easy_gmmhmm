@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>train - easy_gmmhmm</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "train";
+    var mkdocs_page_input_path = "easy_gmmhmm.train.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> easy_gmmhmm</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">train</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#module-easy_gmmhmmtrain">Module easy_gmmhmm.train</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#get95gmms">get_GMMs</a></li>
+        
+            <li><a class="toctree-l3" href="#obtain95config">obtain_config</a></li>
+        
+            <li><a class="toctree-l3" href="#train">train</a></li>
+        
+            <li><a class="toctree-l3" href="#wav2mfcc">wav2mfcc</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">models</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../easy_gmmhmm.models/">models</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">easy_gmmhmm</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>train</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="module-easy_gmmhmmtrain">Module easy_gmmhmm.train</h2>
+<h3 id="get95gmms">get_GMMs</h3>
+<p><code>def get_GMMs(labels, trng_data=None, GMM_config=None, model_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models/gmmhmm.pkl', from_file=False)</code></p>
+<p>Utility function to train or load GMMHMMs based on entered</p>
+<p>configuration and training data.</p>
+<p>Returns a dictionary of trained GMMHMM objects. </p>
+<h3 id="obtain95config">obtain_config</h3>
+<p><code>def obtain_config(labels, file_path, from_file=False)</code></p>
+<p>Utility function to take in parameters to train individual GMMHMMs </p>
+<h3 id="train">train</h3>
+<p><code>def train(data_path, models_path='/home/user/PycharmProjects/gender_detection/easy_gmmhmm/models')</code></p>
+<p>Description:</p>
+<pre><code>Function that takes in the directory containing training data as raw wavfiles within folders named according to label and extracts MFCC feature vectors from them,
+
+accepts a configuration for each in terms of number of states for HMM and number of mixtures in the Gaussian Model and then trains a set of GMMHMMs,
+
+one for each label.
+</code></pre>
+<p>Params:</p>
+<pre><code>* data_path (mandatory): Path to the training wav files. Each folder in this path is a label and must NOT be empty.
+
+* models (mandatory): Path to store the generated pickle files in.
+</code></pre>
+<p>Return:</p>
+<pre><code>A python dictionary of GMMHMMs that are trained, key values being
+
+labels extracted from folder names.
+</code></pre>
+<h3 id="wav2mfcc">wav2mfcc</h3>
+<p><code>def wav2mfcc(labels, data_path, pickle_path='trng_data.pkl', from_file=False)</code></p>
+<p>Utility function to read wav files, convert them into MFCC vectors and store in a pickle file</p>
+<p>(Pickle file is useful in case you re-train on the same data changing hyperparameters) </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../easy_gmmhmm.models/" class="btn btn-neutral float-right" title="models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../easy_gmmhmm.models/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
